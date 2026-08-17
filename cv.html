@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Tom Derrick — CV</title>
+  <style>
+    @page { size: A4; margin: 14mm 16mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Helvetica, Arial, sans-serif; font-size: 10.5pt; line-height: 1.45; color: #111; }
+    h1 { font-size: 20pt; font-weight: 700; }
+    .contact { font-size: 9.5pt; color: #444; margin-top: 2pt; }
+    .contact a { color: #444; text-decoration: none; }
+    h2 { font-size: 11pt; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #999; margin: 12pt 0 6pt; padding-bottom: 2pt; break-after: avoid-page; }
+    .role { display: flex; justify-content: space-between; align-items: baseline; margin-top: 8pt; }
+    .role h3 { font-size: 10.5pt; }
+    .dates { font-size: 9.5pt; color: #444; }
+    .role-sub { font-size: 9.5pt; color: #444; font-style: italic; }
+    ul { margin: 3pt 0 0 14pt; }
+    li { margin-top: 2pt; }
+    .skills { margin-top: 4pt; }
+  </style>
+</head>
+<body>
+  <h1>Tom Derrick</h1>
+  <p class="contact">Data Scientist — Electricity Markets &amp; Quantitative Analytics · Sydney, Australia ·
+    <a href="mailto:tderrick98@outlook.com">tderrick98@outlook.com</a> ·
+    <a href="https://github.com/tder311">github.com/tder311</a> ·
+    <a href="https://www.linkedin.com/in/tderrick98/">linkedin.com/in/tderrick98</a></p>
+
+  <h2>Profile</h2>
+  <p>Data scientist with four years in Australia's National Electricity Market, across price forecasting, mathematical optimisation, and applied AI. I've worked the market from both sides — inside a generator's trading and risk function at Delta Electricity, and now leading the modelling behind Modo Energy's Australian forecast products. My work is production analytics that decisions get made on: MILP dispatch and capacity models solving over the real transmission network, ML price forecasters, contract valuation engines, and retrieval-grounded LLM systems built with evaluation and audit trails rather than demos. I direct the NEM model roadmap, reporting to the Head of Region, and train and delegate to a junior data scientist.</p>
+
+  <h2>Experience</h2>
+  <div class="role"><h3>Data Scientist — Modo Energy, Sydney</h3><span class="dates">Aug 2025 – present</span></div>
+  <p class="role-sub">Series B scaleup building forecasting and investment intelligence for the energy transition — customers include Goldman Sachs, Apollo, EDF, and Shell. I joined the Australian team in its first year and lead the modelling behind its local products.</p>
+  <ul>
+    <li>Designed and shipped the nodal transmission network model behind the July 2026 NEM forecast release — DC optimal power flow, bus-level dispatch, PTDF, load disaggregation, transmission augmentation through 2050+. Took the product from regional to 200+ nodes, so assets are valued at the connection point where they actually sit: largest update since the Australian launch and its first on-time release, delivered as sole modeller while training a new data scientist.</li>
+    <li>Designed the capacity expansion model (linopy + XPRESS MILP) determining least-cost generation and storage buildout across the NEM, replacing weeks of manual capacity tuning per forecast with a single optimisation.</li>
+    <li>Build and run the production cost models producing long-term NEM price forecasts; battery dispatch optimisation and revenue modelling in the multi-market Global Dispatch Model (Pyomo + XPRESS).</li>
+    <li>Built the contracting strategy system end to end — a valuation engine pricing PPAs, tolls and offtake structures against forecast dispatch, plus the React configuration UX shipped to customers.</li>
+    <li>Built and deployed an LLM support agent (Claude + RAG over model documentation, code, and model outputs) answering customer and internal questions across Slack and Intercom — retrieval across heterogeneous sources, with answers grounded in retrieved context rather than free generation.</li>
+    <li>Contributed data engineering and semantic table annotation to Modo's customer-facing AI analyst, so the model interprets forecast datasets correctly.</li>
+    <li>Act as the forecasting expert on customer calls alongside the sales team — technical due diligence with prospects evaluating the product, and discovery with existing customers whose requirements feed back into the NEM model roadmap I direct.</li>
+    <li>Present each forecast release at Modo's customer workshops and to the wider business — translating model and methodology changes into what they mean for investment and trading decisions.</li>
+    <li>Author Modo's published forecast research — model releases, market outlooks, and deep dives.</li>
+  </ul>
+
+  <div class="role"><h3>Market Analyst (Graduate, Jul 2022 – Feb 2023) — Delta Electricity, Sydney</h3><span class="dates">Jul 2022 – Jul 2025</span></div>
+  <p class="role-sub">NSW electricity generator — front-office analytics supporting trading, hedging, and portfolio risk.</p>
+  <ul>
+    <li>Designed whole-of-market NEM simulation models (PLEXOS/Prophet) used for trading, hedging, and business development decisions.</li>
+    <li>Built a Monte-Carlo Gross-Margin-at-Risk engine quantifying portfolio earnings risk across price and volume scenarios, used for risk compliance and portfolio optimisation.</li>
+    <li>Built an ML-powered spot-price forecasting model supporting short-term trading decisions.</li>
+    <li>Developed LGC and ACCU certificate trading strategy across environmental commodity markets.</li>
+    <li>Modelled major investment decisions, including the end-of-life extension of Vales Point Power Station.</li>
+    <li>Optimised the planned-outage schedule to minimise revenue impact; built the internal live trading-performance dashboard. Completed Delta's 2024 future-leadership program.</li>
+  </ul>
+
+  <div class="role"><h3>Customer Success Manager — TechTarget, Sydney</h3><span class="dates">Nov 2020 – Jun 2022</span></div>
+  <ul>
+    <li>Managed APAC campaign delivery for marquee accounts (Red Hat, Dell, IBM, Cisco, Alibaba).</li>
+  </ul>
+
+  <h2>Personal Projects</h2>
+  <ul>
+    <li><strong>nem-market-watch</strong> (nemdash.up.railway.app) — live dashboard for Australia's National Electricity Market: five-minute prices and demand, market metrics, PASA reserve outlook, bid-band analysis, and a tool-calling LLM agent that answers questions against live data. React · FastAPI · PostgreSQL · Railway.</li>
+    <li><strong>nem-forward</strong> (forward-frontend-production.up.railway.app) — XGBoost price forecaster (7-day, half-hourly, P10–P90) benchmarked against AEMO pre-dispatch, LP battery dispatch optimiser, and bid-band generation; every forecast persisted with its model's training timestamp so past runs are scored against actuals instead of overwritten. XGBoost · FastAPI · React.</li>
+    <li><strong>nem-ingestion</strong> — five-minute AEMO market data pipeline: six NEMWEB clients, sole writer and schema owner across 13 tables, backfill CLIs, hourly rollups, and a retention sweep that cut the database from 21 GB to 2 GB. Python · PostgreSQL · Railway.</li>
+    <li><strong>agent-tui</strong> (github.com/tder311/agent-tui) — terminal UI for local AI coding agents: git worktrees, branches, Claude Code / OpenCode sessions, live running agents, and open PRs, grouped by project via app-agnostic filesystem discovery; read-only by default. Go · Bubble Tea.</li>
+    <li><strong>opencode-orchestrator</strong> (github.com/tder311/opencode-orchestrator · npm) — opencode plugin for parallel AI coding agents: each spawns into an isolated git worktree with its own interactive terminal session, pushing completion/blocker reports back to a supervising session.</li>
+    <li><strong>railway-tui</strong> (github.com/tder311/railway-tui) — terminal dashboard for Railway in Go and Bubble Tea: single static binary, OAuth (PKCE) login, live view of deployments, log streams, and environment variables over Railway's GraphQL API, with restart/redeploy/rollback actions and rate-limit-aware polling.</li>
+  </ul>
+
+  <h2>Education &amp; Accreditation</h2>
+  <ul>
+    <li><strong>AFMA Financial Markets Accreditation</strong></li>
+    <li>UNSW — Master of Data Science (with Excellence)</li>
+    <li>University of Sydney — BSc, Computer Science &amp; Statistics</li>
+  </ul>
+
+  <h2>Skills</h2>
+  <p class="skills">NEM market modelling · PLEXOS · linopy · Pyomo · XPRESS (MILP/LP) · Python · XGBoost · time-series forecasting · Monte-Carlo risk · RAG &amp; LLM systems (Claude, OpenAI) · AWS (Batch, S3) · FastAPI · React · PostgreSQL · SQL</p>
+</body>
+</html>
